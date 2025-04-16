@@ -27,7 +27,8 @@
 
 <main class="container my-4">
     <h2>Items in your cart:</h2>
-    <ul id="cart-items" class="list-group mt-3"></ul>
+    <button id="clear-cart-btn" class="btn btn-danger mb-3">Clear Cart</button>
+    <ul id="cart-items" class="list-group"></ul>
 </main>
 
 <footer>
@@ -40,7 +41,19 @@
         const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
         const list = document.getElementById("cart-items");
 
-        if (cartItems.length === 0)
+        // Aggregate quantities by item name
+        const aggregated = {};
+        cartItems.forEach(item =>
+        {
+            if (!aggregated[item.name])
+            {
+                aggregated[item.name] = 0;
+            }
+            aggregated[item.name] += item.quantity;
+        });
+
+        // Display cart contents
+        if (Object.keys(aggregated).length === 0)
         {
             const empty = document.createElement("li");
             empty.className = "list-group-item";
@@ -49,15 +62,29 @@
         }
         else
         {
-            cartItems.forEach(item => {
+            for (const [name, quantity] of Object.entries(aggregated))
+            {
                 const li = document.createElement("li");
                 li.className = "list-group-item";
-                li.textContent = `${item.name} x${item.quantity}`;
+                li.textContent = `${name} x${quantity}`;
                 list.appendChild(li);
-            });
+            }
         }
+        // Handle Clear Cart button
+        document.getElementById("clear-cart-btn").addEventListener("click", () =>
+        {
+            localStorage.removeItem("cart");
+            const list = document.getElementById("cart-items");
+            list.innerHTML = '';
+
+            const empty = document.createElement("li");
+            empty.className = "list-group-item";
+            empty.textContent = "Your cart is empty.";
+            list.appendChild(empty);
+        });
     });
 </script>
+
 
 </body>
 </html>
