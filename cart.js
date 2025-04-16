@@ -9,10 +9,33 @@ document.addEventListener("DOMContentLoaded", () =>
         button.addEventListener("click", () =>
         {
             const itemName = button.getAttribute("data-name");
-            cart.push(itemName);
+            const qtyInput = button.closest(".card").querySelector(".item-qty");
+            const quantity = parseInt(qtyInput?.value) || 1;
+
+            cart.push({name: itemName, quantity});
             localStorage.setItem("cart", JSON.stringify(cart));
-            console.log(`${itemName} added to cart.`);
+
+            console.log(`${itemName} x${quantity} added to cart.`);
             console.log("Current cart:", cart);
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () =>
+{
+    const qtyInputs = document.querySelectorAll(".item-qty");
+
+    qtyInputs.forEach(input =>
+    {
+        input.addEventListener("input", () =>
+        {
+            const id = input.id;
+            const displaySpan = document.getElementById("qty-display-" + id);
+            if (displaySpan)
+            {
+                displaySpan.textContent = input.value;
+            }
+        });
+    });
+});
+

@@ -12,20 +12,17 @@
 
 <header>
     <h1>Your Cart</h1>
+    <p>Your total is: xxx.</p>
     <a href="home.html" class="logo">
         <img src="images/logo.png" alt="Fresh Picks Logo">
     </a>
 </header>
 
-<nav class="d-flex justify-content-between align-items-center px-3 py-2" style="background-color: #333;">
-    <div>
-        <a href="home.html" class="text-white text-decoration-none me-3">Home</a>
-        <a href="fruits.html" class="text-white text-decoration-none me-3">Fruits</a>
-        <a href="vegetables.html" class="text-white text-decoration-none">Vegetables</a>
-    </div>
-    <a href="cart.html" id="cart-icon">
-        <img src="images/cart.png" alt="Cart" style="height: 30px;">
-    </a>
+<nav>
+    <a href="home.html">Home</a>
+    <a href="fruits.html">Fruits</a>
+    <a href="vegetables.html">Vegetables</a>
+    <a href="cart.html">Your Cart</a>
 </nav>
 
 <main class="container my-4">
@@ -52,11 +49,10 @@
         }
         else
         {
-            cartItems.forEach(item =>
-            {
+            cartItems.forEach(item => {
                 const li = document.createElement("li");
                 li.className = "list-group-item";
-                li.textContent = item;
+                li.textContent = `${item.name} x${item.quantity}`;
                 list.appendChild(li);
             });
         }
@@ -65,3 +61,5 @@
 
 </body>
 </html>
+
+
