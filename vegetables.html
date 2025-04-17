@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fresh Picks - Vegetables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h1>Fresh Vegetable Selection</h1>
+    <p>Sourced locally from Wisconsin farmers.</p>
+    <a href="home.html" class="logo">
+        <img src="images/logo.png" alt="Fresh Picks Logo">
+    </a>
+</header>
+
+<nav>
+    <a href="home.html">Home</a>
+    <a href="fruits.html">Fruits</a>
+    <a href="vegetables.html">Vegetables</a>
+    <a href="cart.html">Your Cart</a>
+</nav>
+
+<main class="container my-4">
+    <div class="row" id="vegetable-list">
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/broccoli.jpg" class="card-img-top mb-2" alt="Broccoli">
+                <h3>Broccoli</h3>
+                <p>Crunchy and nutrient-packed green veggie.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Broccoli">
+                        Already in cart: <span id="qty-display-qty-Broccoli">0</span> × $1.25 =
+                        $<span id="total-display-Broccoli">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Broccoli"
+                                data-name="Broccoli"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Broccoli" class="text-danger d-none">Quantity must be greater than
+                        0</small>
+
+                    <button
+                            class="btn btn-success w-100 add-to-cart"
+                            data-name="Broccoli"
+                            data-price="1.25">
+                        Add to Cart ($1.25)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/carrots.jpg" class="card-img-top mb-2" alt="Carrots">
+                <h3>Carrots</h3>
+                <p>Bright orange and great for eyesight.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Carrots">
+                        Already in cart: <span id="qty-display-qty-Carrots">0</span> × $0.80 =
+                        $<span id="total-display-Carrots">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Carrots"
+                                data-name="Carrots"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Carrots" class="text-danger d-none">Quantity must be greater than 0</small>
+
+                    <button
+                            class="btn btn-success w-100 add-to-cart"
+                            data-name="Carrots"
+                            data-price="0.80">
+                        Add to Cart ($0.80)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/cauliflower.jpg" class="card-img-top mb-2" alt="Cauliflower">
+                <h3>Cauliflower</h3>
+                <p>White florets, perfect for roasting or rice.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Cauliflower">
+                        Already in cart: <span id="qty-display-qty-Cauliflower">0</span> × $1.40 =
+                        $<span id="total-display-Cauliflower">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Cauliflower"
+                                data-name="Cauliflower"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Cauliflower" class="text-danger d-none">Quantity must be greater than
+                        0</small>
+
+                    <button
+                            class="btn btn-success w-100 add-to-cart"
+                            data-name="Cauliflower"
+                            data-price="1.40">
+                        Add to Cart ($1.40)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/cherryTomatoes.jpg" class="card-img-top mb-2" alt="Cherry Tomatoes">
+                <h3>Cherry Tomatoes</h3>
+                <p>Juicy red bites perfect for snacking or salads.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Cherry-Tomatoes">
+                        Already in cart: <span id="qty-display-qty-Cherry-Tomatoes">0</span> × $2.20 =
+                        $<span id="total-display-Cherry-Tomatoes">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Cherry-Tomatoes"
+                                data-name="Cherry Tomatoes"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Cherry-Tomatoes" class="text-danger d-none">Quantity must be greater than
+                        0</small>
+
+                    <button
+                            class="btn btn-success w-100 add-to-cart"
+                            data-name="Cherry Tomatoes"
+                            data-price="2.20">
+                        Add to Cart ($2.20)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/cucumber.jpeg" class="card-img-top mb-2" alt="Cucumbers">
+                <h3>Cucumbers</h3>
+                <p>Cool, crisp, and refreshing slices of green.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Cucumbers">
+                        Already in cart: <span id="qty-display-qty-Cucumbers">0</span> × $1.00 =
+                        $<span id="total-display-Cucumbers">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Cucumbers"
+                                data-name="Cucumbers"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Cucumbers" class="text-danger d-none">Quantity must be greater than
+                        0</small>
+
+                    <button
+                            class="btn btn-success w-100 add-to-cart"
+                            data-name="Cucumbers"
+                            data-price="1.00">
+                        Add to Cart ($1.00)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/greenBeans.jpg" class="card-img-top mb-2" alt="Green Beans">
+                <h3>Green Beans</h3>
+                <p>Perfectly snappy and delicious steamed or roasted.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Green-Beans">
+                        Already in cart: <span id="qty-display-qty-Green-Beans">0</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Green-Beans"
+                                data-name="Green Beans"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Green-Beans" class="text-danger d-none">Quantity must be greater than
+                        0</small>
+
+                    <button class="btn btn-success w-100 add-to-cart" data-name="Green Beans">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/redBellPeppers.png" class="card-img-top mb-2" alt="Red Bell Peppers">
+                <h3>Red Bell Peppers</h3>
+                <p>Sweet and crunchy with vivid red color.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Red-Bell-Peppers">
+                        Already in cart: <span id="qty-display-qty-Red-Bell-Peppers">0</span> × $1.30 =
+                        $<span id="total-display-Red-Bell-Peppers">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Red-Bell-Peppers"
+                                data-name="Red Bell Peppers"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Red-Bell-Peppers" class="text-danger d-none">Quantity must be greater than
+                        0</small>
+
+                    <button
+                            class="btn btn-success w-100 add-to-cart"
+                            data-name="Red Bell Peppers"
+                            data-price="1.30">
+                        Add to Cart ($1.30)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/spinach.jpg" class="card-img-top mb-2" alt="Spinach">
+                <h3>Spinach</h3>
+                <p>Leafy green rich in iron and nutrients.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Spinach">
+                        Already in cart: <span id="qty-display-qty-Spinach">0</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Spinach"
+                                data-name="Spinach"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Spinach" class="text-danger d-none">Quantity must be greater than 0</small>
+
+                    <button class="btn btn-success w-100 add-to-cart" data-name="Spinach">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/sweetCorn.jpg" class="card-img-top mb-2" alt="Sweet Corn">
+                <h3>Sweet Corn</h3>
+                <p>Golden kernels that scream summer sweetness.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Sweet-Corn">
+                        Already in cart: <span id="qty-display-qty-Sweet-Corn">0</span> × $1.60 =
+                        $<span id="total-display-Sweet-Corn">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Sweet-Corn"
+                                data-name="Sweet Corn"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Sweet-Corn" class="text-danger d-none">Quantity must be greater than
+                        0</small>
+
+                    <button
+                            class="btn btn-success w-100 add-to-cart"
+                            data-name="Sweet Corn"
+                            data-price="1.60">
+                        Add to Cart ($1.60)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/zucchini.jpg" class="card-img-top mb-2" alt="Zucchini">
+                <h3>Zucchini</h3>
+                <p>Versatile squash for grilling, sautéing, or baking.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Zucchini">
+                        Already in cart: <span id="qty-display-qty-Zucchini">0</span> × $1.15 =
+                        $<span id="total-display-Zucchini">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Zucchini"
+                                data-name="Zucchini"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Zucchini" class="text-danger d-none">Quantity must be greater than
+                        0</small>
+
+                    <button
+                            class="btn btn-success w-100 add-to-cart"
+                            data-name="Zucchini"
+                            data-price="1.15">
+                        Add to Cart ($1.15)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 Fresh Picks. All rights reserved.
+</footer>
+
+</body>
+</html>
