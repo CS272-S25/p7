@@ -8,36 +8,30 @@ function toSafeId(name)
 document.addEventListener("DOMContentLoaded", () =>
 {
     const itemCounts = {};
+    const itemTotals = {};
 
-    // Tally current cart quantities
+    // Tally current cart items
     cart.forEach(item =>
     {
-        if (!itemCounts[item.name])
-        {
-            itemCounts[item.name] = 0;
-        }
+        if (!itemCounts[item.name]) itemCounts[item.name] = 0;
+        if (!itemTotals[item.name]) itemTotals[item.name] = 0;
+
         itemCounts[item.name] += item.quantity;
+        itemTotals[item.name] += item.quantity * item.price;
     });
 
-    const qtyInputs = document.querySelectorAll(".item-qty");
-    qtyInputs.forEach(input =>
+    document.querySelectorAll(".item-qty").forEach(input =>
     {
-        const id = input.id; // already safe
         const itemName = input.getAttribute("data-name");
-        const displaySpan = document.getElementById("qty-display-" + id);
-        const errorMsg = document.getElementById("qty-error-" + id);
+        const safeId = toSafeId(itemName);
+        const displayQty = document.getElementById("qty-display-qty-" + safeId);
+        const displayTotal = document.getElementById("total-display-" + safeId);
+        const errorMsg = document.getElementById("qty-error-qty-" + safeId);
 
-        // Set initial 'Already in cart' value
-        if (displaySpan && itemCounts[itemName])
-        {
-            displaySpan.textContent = itemCounts[itemName];
-        }
-        else if (displaySpan)
-        {
-            displaySpan.textContent = "0";
-        }
+        // Init quantity & total
+        if (displayQty) displayQty.textContent = itemCounts[itemName] || 0;
+        if (displayTotal) displayTotal.textContent = (itemTotals[itemName] || 0).toFixed(2);
 
-        // Live validation
         input.addEventListener("input", () =>
         {
             const value = parseInt(input.value);
@@ -54,36 +48,36 @@ document.addEventListener("DOMContentLoaded", () =>
         });
     });
 
-    const buttons = document.querySelectorAll(".add-to-cart");
-    buttons.forEach(button =>
+    document.querySelectorAll(".add-to-cart").forEach(button =>
     {
         button.addEventListener("click", () =>
         {
             const itemName = button.getAttribute("data-name");
+            const price = parseFloat(button.getAttribute("data-price"));
             const safeId = toSafeId(itemName);
             const qtyInput = document.getElementById("qty-" + safeId);
-            const displaySpan = document.getElementById("qty-display-qty-" + safeId) || document.getElementById("qty-display-" + safeId);
+            const displayQty = document.getElementById("qty-display-qty-" + safeId);
+            const displayTotal = document.getElementById("total-display-" + safeId);
             const quantity = parseInt(qtyInput?.value);
 
             if (!quantity || quantity <= 0)
             {
                 qtyInput.classList.add("border-danger");
-                const errorMsg = document.getElementById("qty-error-" + qtyInput.id);
+                const errorMsg = document.getElementById("qty-error-qty-" + safeId);
                 if (errorMsg) errorMsg.classList.remove("d-none");
                 return;
             }
 
-            cart.push({name: itemName, quantity});
+            cart.push({name: itemName, quantity, price});
             localStorage.setItem("cart", JSON.stringify(cart));
 
             // Update display
-            if (displaySpan)
-            {
-                const current = parseInt(displaySpan.textContent) || 0;
-                displaySpan.textContent = current + quantity;
-            }
+            const currentQty = parseInt(displayQty?.textContent) || 0;
+            const newQty = currentQty + quantity;
+            const newTotal = newQty * price;
 
-            console.log(`${itemName} x${quantity} added to cart.`);
+            if (displayQty) displayQty.textContent = newQty;
+            if (displayTotal) displayTotal.textContent = newTotal.toFixed(2);
         });
     });
 });
