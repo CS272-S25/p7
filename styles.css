@@ -9,7 +9,7 @@ body
 header
 {
     background-color: #4CAF50;
-    color: white;
+    color: #333333;
     padding: 1rem;
     text-align: center;
     position: relative;
@@ -57,7 +57,7 @@ main
 footer
 {
     background-color: #4CAF50;
-    color: white;
+    color: #333333;
     text-align: center;
     padding: 1rem;
     position: fixed;
