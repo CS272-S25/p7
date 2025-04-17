@@ -19,7 +19,7 @@ header
 {
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
 }
 
 .logo img
@@ -75,6 +75,34 @@ footer
 {
     display: block;
     margin-bottom: 0.5rem;
+}
+
+h2.subtitle{
+    font-size: medium;
+    font-weight: bold;
+}
+
+.scroll-gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+
+.scroll-gallery::-webkit-scrollbar {
+    height: 8px;
+}
+
+
+.scroll-gallery img {
+    height: 200px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}   
+  
+.scroll-gallery img:hover {
+    transform: scale(1.05);
 }
 
 
