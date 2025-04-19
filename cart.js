@@ -1,3 +1,9 @@
+/**
+ * Shopping cart management script
+ * Handles cart initialization, item quantity validation, and updates to the UI
+ * Cart data is persisted in localStorage as a JSON string
+ */
+
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function toSafeId(name)
