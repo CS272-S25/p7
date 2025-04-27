@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fresh Picks - Meats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h1>Fresh Meat Selection</h1>
+    <h2 class="subtitle">Sourced locally from Wisconsin farmers.</h2>
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Fresh Picks Logo">
+    </a>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="fruits.html">Fruits</a>
+    <a href="vegetables.html">Vegetables</a>
+    <a href="meats.html">Meats</a>
+    <a href="preserves.html">Preserves</a>
+    <a href="cart.html">Your Cart</a>
+</nav>
+
+<main class="container my-4">
+    <div class="row" id="meat-list">
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/beef.webp" class="card-img-top mb-2" alt="Beef">
+                <h3>Beef</h3>
+                <p>Rich and hearty cuts for grilling or roasting.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Beef">
+                        Already in cart: <span id="qty-display-qty-Beef">0</span> × $5.00 =
+                        $<span id="total-display-Beef">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input type="number" id="qty-Beef" data-name="Beef" class="form-control item-qty" min="1"
+                               value="1" style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Beef" class="text-danger d-none">Quantity must be greater than 0</small>
+
+                    <button class="btn btn-success w-100 add-to-cart" data-name="Beef" data-price="5.00">
+                        Add to Cart ($5.00)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/pork.jpg" class="card-img-top mb-2" alt="Pork">
+                <h3>Pork</h3>
+                <p>Flavorful cuts perfect for roasting and barbecues.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Pork">
+                        Already in cart: <span id="qty-display-qty-Pork">0</span> × $4.00 =
+                        $<span id="total-display-Pork">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input type="number" id="qty-Pork" data-name="Pork" class="form-control item-qty" min="1"
+                               value="1" style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Pork" class="text-danger d-none">Quantity must be greater than 0</small>
+
+                    <button class="btn btn-success w-100 add-to-cart" data-name="Pork" data-price="4.00">
+                        Add to Cart ($4.00)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/lamb.jpeg" class="card-img-top mb-2" alt="Lamb">
+                <h3>Lamb</h3>
+                <p>Tender and flavorful for special meals.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Lamb">
+                        Already in cart: <span id="qty-display-qty-Lamb">0</span> × $6.00 =
+                        $<span id="total-display-Lamb">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input type="number" id="qty-Lamb" data-name="Lamb" class="form-control item-qty" min="1"
+                               value="1" style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Lamb" class="text-danger d-none">Quantity must be greater than 0</small>
+
+                    <button class="btn btn-success w-100 add-to-cart" data-name="Lamb" data-price="6.00">
+                        Add to Cart ($6.00)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/chicken.webp" class="card-img-top mb-2" alt="Chicken">
+                <h3>Chicken</h3>
+                <p>Versatile and perfect for many dishes.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Chicken">
+                        Already in cart: <span id="qty-display-qty-Chicken">0</span> × $3.50 =
+                        $<span id="total-display-Chicken">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input type="number" id="qty-Chicken" data-name="Chicken" class="form-control item-qty" min="1"
+                               value="1" style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Chicken" class="text-danger d-none">Quantity must be greater than 0</small>
+
+                    <button class="btn btn-success w-100 add-to-cart" data-name="Chicken" data-price="3.50">
+                        Add to Cart ($3.50)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/turkey.jpeg" class="card-img-top mb-2" alt="Turkey">
+                <h3>Turkey</h3>
+                <p>Lean and flavorful option for roasts and sandwiches.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Turkey">
+                        Already in cart: <span id="qty-display-qty-Turkey">0</span> × $4.50 =
+                        $<span id="total-display-Turkey">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input type="number" id="qty-Turkey" data-name="Turkey" class="form-control item-qty" min="1"
+                               value="1" style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Turkey" class="text-danger d-none">Quantity must be greater than 0</small>
+
+                    <button class="btn btn-success w-100 add-to-cart" data-name="Turkey" data-price="4.50">
+                        Add to Cart ($4.50)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 Fresh Picks. All rights reserved.
+</footer>
+
+</body>
+</html>
