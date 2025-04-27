@@ -29,7 +29,9 @@
 
 <main class="container my-4">
     <h2>Your Cart</h2>
-    <button id="clear-cart-btn" class="btn btn-outline-danger mb-3" style="background-color: rgba(246,14,14,0.58); color: rgb(255,255,255)">Clear Cart</button>
+    <button id="clear-cart-btn" class="btn btn-outline-danger mb-3"
+            style="background-color: rgba(246,14,14,0.58); color: rgb(255,255,255)">Clear Cart
+    </button>
 
     <ul id="cart-items" class="list-group mb-3"></ul>
 
@@ -41,7 +43,6 @@
     <button id="checkout-btn" class="btn btn-primary mt-3">Checkout</button>
 </main>
 
-
 <footer>
     &copy; 2025 Fresh Picks. All rights reserved.
 </footer>
@@ -49,25 +50,24 @@
 <script>
     document.addEventListener("DOMContentLoaded", () =>
     {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
         const list = document.getElementById("cart-items");
         const totalSpan = document.getElementById("cart-total");
 
-        const aggregated = {};
-        let grandTotal = 0;
-
-        cart.forEach(({name, quantity, price}) =>
-        {
-            if (!aggregated[name])
-            {
-                aggregated[name] = {quantity: 0, price};
-            }
-            aggregated[name].quantity += quantity;
-        });
-
-        const renderCart = () =>
+        function renderCart()
         {
             list.innerHTML = "";
+
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const aggregated = {};
+
+            cart.forEach(({name, quantity, price}) =>
+            {
+                if (!aggregated[name])
+                {
+                    aggregated[name] = {quantity: 0, price};
+                }
+                aggregated[name].quantity += quantity;
+            });
 
             if (Object.keys(aggregated).length === 0)
             {
@@ -79,28 +79,40 @@
                 return;
             }
 
-            grandTotal = 0;
+            let grandTotal = 0;
 
             for (const [name, {quantity, price}] of Object.entries(aggregated))
             {
-                const itemTotal = (quantity * price).toFixed(2);
-                grandTotal += quantity * price;
-
                 const li = document.createElement("li");
-                li.className = "list-group-item d-flex justify-content-between";
-                li.innerHTML = `
-  <span>${name} × ${quantity} @ $${price.toFixed(2)}</span>
-  <div>
-    <span class="me-3">$${itemTotal}</span>
-    <button class="btn btn-sm btn-danger remove-item" data-name="${name}">Remove All</button>
-  </div>
-`;
+                li.className = "list-group-item d-flex justify-content-between align-items-center";
+
+                const nameQtySpan = document.createElement("span");
+                nameQtySpan.textContent = `${name} × ${quantity} @ $${price.toFixed(2)}`;
+
+                const rightDiv = document.createElement("div");
+                const itemTotalSpan = document.createElement("span");
+                itemTotalSpan.className = "me-3";
+                const itemTotal = quantity * price;
+                itemTotalSpan.textContent = `$${itemTotal.toFixed(2)}`;
+
+                const removeButton = document.createElement("button");
+                removeButton.className = "btn btn-sm btn-danger remove-item";
+                removeButton.textContent = "Remove All";
+                removeButton.setAttribute("data-name", name);
+
+                rightDiv.appendChild(itemTotalSpan);
+                rightDiv.appendChild(removeButton);
+
+                li.appendChild(nameQtySpan);
+                li.appendChild(rightDiv);
 
                 list.appendChild(li);
+
+                grandTotal += itemTotal;
             }
 
             totalSpan.textContent = `$${grandTotal.toFixed(2)}`;
-        };
+        }
 
         renderCart();
 
@@ -109,32 +121,46 @@
             if (e.target.classList.contains("remove-item"))
             {
                 const itemName = e.target.getAttribute("data-name");
-
-                // Remove matching items from cart array
-                const updatedCart = cart.filter(item => item.name !== itemName);
-                localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-                location.reload();
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart = cart.filter(item => item.name !== itemName);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                renderCart();
             }
         });
 
         document.getElementById("clear-cart-btn").addEventListener("click", () =>
         {
             localStorage.removeItem("cart");
-            location.reload(); // reload page to reset everything
+            renderCart();
         });
 
         document.getElementById("checkout-btn").addEventListener("click", () =>
         {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0)
+            {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            let cartSummary = '';
+            let totalCost = 0;
+
+            cart.forEach(item =>
+            {
+                cartSummary += `${item.name} - $${item.price.toFixed(2)} ||| `;
+                totalCost += item.price;
+            });
+
+            cartSummary += `\n\nTotal: $${totalCost.toFixed(2)}`;
+
+            alert(`You bought:\n\n${cartSummary}`);
+
             localStorage.removeItem("cart");
-            list.innerHTML = '<li class="list-group-item text-success">✅ Thank you for your order!</li>';
-            totalSpan.textContent = "$0.00";
+            renderCart();
         });
     });
 </script>
 
-
 </body>
 </html>
-
-
