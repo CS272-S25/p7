@@ -217,37 +217,6 @@
 
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
             <div class="card h-100 p-3 d-flex flex-column">
-                <img src="images/greenBeans.jpg" class="card-img-top mb-2" alt="Green Beans">
-                <h3>Green Beans</h3>
-                <p>Perfectly snappy and delicious steamed or roasted.</p>
-
-                <div class="mt-auto">
-                    <label class="form-label mb-1" for="qty-Green-Beans">
-                        Already in cart: <span id="qty-display-qty-Green-Beans">0</span>
-                    </label>
-
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <span>Quantity:</span>
-                        <input
-                                type="number"
-                                id="qty-Green-Beans"
-                                data-name="Green Beans"
-                                class="form-control item-qty"
-                                min="1"
-                                value="1"
-                                style="max-width: 100px;">
-                    </div>
-
-                    <small id="qty-error-qty-Green-Beans" class="text-danger d-none">Quantity must be greater than
-                        0</small>
-
-                    <button class="btn btn-success w-100 add-to-cart" data-name="Green Beans">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-            <div class="card h-100 p-3 d-flex flex-column">
                 <img src="images/redBellPeppers.png" class="card-img-top mb-2" alt="Red Bell Peppers">
                 <h3>Red Bell Peppers</h3>
                 <p>Sweet and crunchy with vivid red color.</p>
@@ -285,13 +254,48 @@
 
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
             <div class="card h-100 p-3 d-flex flex-column">
+                <img src="images/greenBeans.jpg" class="card-img-top mb-2" alt="Green Beans">
+                <h3>Green Beans</h3>
+                <p>Perfectly snappy and delicious steamed or roasted.</p>
+
+                <div class="mt-auto">
+                    <label class="form-label mb-1" for="qty-Green-Beans">
+                        Already in cart: <span id="qty-display-qty-Green-Beans">0</span> × $1.00 =
+                        $<span id="total-display-Green-Beans">0.00</span>
+                    </label>
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span>Quantity:</span>
+                        <input
+                                type="number"
+                                id="qty-Green-Beans"
+                                data-name="Green Beans"
+                                class="form-control item-qty"
+                                min="1"
+                                value="1"
+                                style="max-width: 100px;">
+                    </div>
+
+                    <small id="qty-error-qty-Green-Beans" class="text-danger d-none">Quantity must be greater than
+                        0</small>
+
+                    <button class="btn btn-success w-100 add-to-cart" data-name="Green Beans" data-price="1.00">
+                        Add to Cart ($1.00)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column">
                 <img src="images/spinach.jpg" class="card-img-top mb-2" alt="Spinach">
                 <h3>Spinach</h3>
                 <p>Leafy green rich in iron and nutrients.</p>
 
                 <div class="mt-auto">
                     <label class="form-label mb-1" for="qty-Spinach">
-                        Already in cart: <span id="qty-display-qty-Spinach">0</span>
+                        Already in cart: <span id="qty-display-qty-Spinach">0</span> × $2.20 =
+                        $<span id="total-display-Spinach">0.00</span>
                     </label>
 
                     <div class="d-flex align-items-center gap-2 mb-2">
@@ -308,7 +312,9 @@
 
                     <small id="qty-error-qty-Spinach" class="text-danger d-none">Quantity must be greater than 0</small>
 
-                    <button class="btn btn-success w-100 add-to-cart" data-name="Spinach">Add to Cart</button>
+                    <button class="btn btn-success w-100 add-to-cart" data-name="Spinach" data-price="2.20">
+                        Add to Cart ($2.20)
+                    </button>
                 </div>
             </div>
         </div>
