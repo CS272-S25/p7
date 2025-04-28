@@ -1,0 +1,147 @@
+[
+  {
+    "item": "Honeycrisp Apples",
+    "ourPrice": 0.50,
+    "competitorPrice": 0.65
+  },
+  {
+    "item": "Bananas",
+    "ourPrice": 0.50,
+    "competitorPrice": 0.55
+  },
+  {
+    "item": "Navel Oranges",
+    "ourPrice": 0.75,
+    "competitorPrice": 0.90
+  },
+  {
+    "item": "Red Seedless Grapes",
+    "ourPrice": 2.25,
+    "competitorPrice": 2.50
+  },
+  {
+    "item": "Strawberries",
+    "ourPrice": 2.50,
+    "competitorPrice": 2.80
+  },
+  {
+    "item": "Blueberries",
+    "ourPrice": 2.00,
+    "competitorPrice": 2.25
+  },
+  {
+    "item": "Mangoes",
+    "ourPrice": 1.75,
+    "competitorPrice": 2.00
+  },
+  {
+    "item": "Cherries",
+    "ourPrice": 2.75,
+    "competitorPrice": 3.10
+  },
+  {
+    "item": "Pineapples",
+    "ourPrice": 3.00,
+    "competitorPrice": 3.50
+  },
+  {
+    "item": "Broccoli",
+    "ourPrice": 1.25,
+    "competitorPrice": 1.50
+  },
+  {
+    "item": "Carrots",
+    "ourPrice": 0.80,
+    "competitorPrice": 1.00
+  },
+  {
+    "item": "Cauliflower",
+    "ourPrice": 1.40,
+    "competitorPrice": 1.60
+  },
+  {
+    "item": "Cherry Tomatoes",
+    "ourPrice": 2.20,
+    "competitorPrice": 2.50
+  },
+  {
+    "item": "Cucumbers",
+    "ourPrice": 1.00,
+    "competitorPrice": 1.20
+  },
+  {
+    "item": "Red Bell Peppers",
+    "ourPrice": 1.30,
+    "competitorPrice": 1.50
+  },
+  {
+    "item": "Green Beans",
+    "ourPrice": 1.00,
+    "competitorPrice": 1.20
+  },
+  {
+    "item": "Spinach",
+    "ourPrice": 2.20,
+    "competitorPrice": 2.50
+  },
+  {
+    "item": "Sweet Corn",
+    "ourPrice": 1.60,
+    "competitorPrice": 1.90
+  },
+  {
+    "item": "Zucchini",
+    "ourPrice": 1.15,
+    "competitorPrice": 1.35
+  },
+  {
+    "item": "Beef",
+    "ourPrice": 5.00,
+    "competitorPrice": 6.00
+  },
+  {
+    "item": "Pork",
+    "ourPrice": 4.00,
+    "competitorPrice": 5.00
+  },
+  {
+    "item": "Lamb",
+    "ourPrice": 10.00,
+    "competitorPrice": 11.50
+  },
+  {
+    "item": "Chicken",
+    "ourPrice": 9.50,
+    "competitorPrice": 11.00
+  },
+  {
+    "item": "Turkey",
+    "ourPrice": 28.50,
+    "competitorPrice": 32.00
+  },
+  {
+    "item": "Strawberry Jam",
+    "ourPrice": 3.50,
+    "competitorPrice": 4.00
+  },
+  {
+    "item": "Blueberry Jam",
+    "ourPrice": 3.75,
+    "competitorPrice": 4.25
+  },
+  {
+    "item": "Peach Preserve",
+    "ourPrice": 4.00,
+    "competitorPrice": 4.50
+  },
+  {
+    "item": "Raspberry Preserve",
+    "ourPrice": 4.25,
+    "competitorPrice": 4.75
+  },
+  {
+    "item": "Apricot Jam",
+    "ourPrice": 3.80,
+    "competitorPrice": 4.30
+  }
+]
