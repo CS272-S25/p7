@@ -49,18 +49,23 @@
 </footer>
 
 <script>
+    // Wait for the page content to fully load
     document.addEventListener("DOMContentLoaded", () =>
     {
+        // Select cart elements from the page
         const list = document.getElementById("cart-items");
         const totalSpan = document.getElementById("cart-total");
 
+        // Function to render the cart items onto the page
         function renderCart()
         {
-            list.innerHTML = "";
+            list.innerHTML = ""; // Clear current cart display
 
+            // Load cart items from localStorage or default to empty array
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
-            const aggregated = {};
+            const aggregated = {}; // Object to group items by name
 
+            // Aggregate cart items by name, summing quantities
             cart.forEach(({name, quantity, price}) =>
             {
                 if (!aggregated[name])
@@ -70,6 +75,7 @@
                 aggregated[name].quantity += quantity;
             });
 
+            // If cart is empty, show "Your cart is empty" message
             if (Object.keys(aggregated).length === 0)
             {
                 const li = document.createElement("li");
@@ -80,8 +86,9 @@
                 return;
             }
 
-            let grandTotal = 0;
+            let grandTotal = 0; // Tracks overall cart total
 
+            // Render each cart item as a list element
             for (const [name, {quantity, price}] of Object.entries(aggregated))
             {
                 const li = document.createElement("li");
@@ -91,6 +98,7 @@
                 nameQtySpan.textContent = `${name} × ${quantity} @ $${price.toFixed(2)}`;
 
                 const rightDiv = document.createElement("div");
+
                 const itemTotalSpan = document.createElement("span");
                 itemTotalSpan.className = "me-3";
                 const itemTotal = quantity * price;
@@ -99,51 +107,59 @@
                 const removeButton = document.createElement("button");
                 removeButton.className = "btn btn-sm btn-danger remove-item";
                 removeButton.textContent = "Remove All";
-                removeButton.setAttribute("data-name", name);
+                removeButton.setAttribute("data-name", name); // Store item name for removal
 
+                // Assemble the list item
                 rightDiv.appendChild(itemTotalSpan);
                 rightDiv.appendChild(removeButton);
-
                 li.appendChild(nameQtySpan);
                 li.appendChild(rightDiv);
-
                 list.appendChild(li);
 
-                grandTotal += itemTotal;
+                grandTotal += itemTotal; // Add to overall total
             }
 
+            // Update displayed total
             totalSpan.textContent = `$${grandTotal.toFixed(2)}`;
         }
 
+        // Initial rendering of the cart
         renderCart();
 
+        // Event listener for removing an individual item
         list.addEventListener("click", (e) =>
         {
             if (e.target.classList.contains("remove-item"))
             {
                 const itemName = e.target.getAttribute("data-name");
                 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                // Remove all instances of the selected item
                 cart = cart.filter(item => item.name !== itemName);
                 localStorage.setItem("cart", JSON.stringify(cart));
-                renderCart();
+                renderCart(); // Re-render the cart
             }
         });
 
+        // Event listener for clearing the entire cart
         document.getElementById("clear-cart-btn").addEventListener("click", () =>
         {
-            localStorage.removeItem("cart");
-            renderCart();
+            localStorage.removeItem("cart"); // Remove cart from storage
+            renderCart(); // Refresh the cart display
         });
 
+        // Event listener for the checkout button
         document.getElementById("checkout-btn").addEventListener("click", () =>
         {
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Prevent checkout if cart is empty
             if (cart.length === 0)
             {
                 alert("Your cart is empty!");
                 return;
             }
 
+            // Build a summary of the purchased items
             let cartSummary = '';
             let totalCost = 0;
 
@@ -155,13 +171,16 @@
 
             cartSummary += `\n\nTotal: $${totalCost.toFixed(2)}`;
 
+            // Show purchase summary
             alert(`You bought:\n\n${cartSummary}`);
 
+            // Clear the cart after checkout
             localStorage.removeItem("cart");
             renderCart();
         });
     });
 </script>
+
 
 </body>
 </html>
