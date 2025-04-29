@@ -82,19 +82,6 @@ h2.subtitle{
     font-weight: bold;
 }
 
-.scroll-gallery {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px;
-    scroll-behavior: smooth;
-}
-
-.scroll-gallery::-webkit-scrollbar {
-    height: 8px;
-}
-
-
 .scroll-gallery img {
     height: 200px;
     flex-shrink: 0;
@@ -105,4 +92,43 @@ h2.subtitle{
     transform: scale(1.05);
 }
 
+.scroll-gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
 
+.scroll-gallery img {
+    max-height: 150px;
+    flex-shrink: 0;
+    border-radius: 0.5rem;
+    scroll-snap-align: start;
+}
+
+.styled-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+.styled-list li::before {
+    content: "💠";
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #6fa36a;
+}

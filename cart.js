@@ -4,7 +4,7 @@
  * Cart data is persisted in localStorage as a JSON string
  */
 
-document.addEventListener("DOMContentLoaded", () =>
+function initializeCart()
 {
     // Retrieve the cart from localStorage or initialize an empty array if not found
     function getCart()
@@ -110,4 +110,44 @@ document.addEventListener("DOMContentLoaded", () =>
             if (displayTotal) displayTotal.textContent = newTotal.toFixed(2);
         });
     });
+
+    document.querySelectorAll(".remove-from-cart").forEach(button =>
+    {
+        button.addEventListener("click", () =>
+        {
+            const itemName = button.getAttribute("data-name");
+            const price = parseFloat(button.getAttribute("data-price"));
+            const safeId = toSafeId(itemName);
+            const qtyInput = document.getElementById("qty-" + safeId);
+            const displayQty = document.getElementById("qty-display-qty-" + safeId);
+            const displayTotal = document.getElementById("total-display-" + safeId);
+            const quantity = parseInt(qtyInput?.value);
+    
+            let cart = getCart();
+    
+            const itemIndex = cart.findIndex(item => item.name === itemName);
+            if (itemIndex === -1) return; // Item not found
+    
+            cart[itemIndex].quantity -= quantity;
+    
+            // Remove item completely if quantity is 0 or less
+            if (cart[itemIndex].quantity <= 0) {
+                cart.splice(itemIndex, 1);
+            }
+    
+            setCart(cart);
+    
+            const currentQty = parseInt(displayQty?.textContent) || 0;
+            const newQty = Math.max(currentQty - quantity, 0);  // Avoid negative display
+            const newTotal = newQty * price;
+    
+            if (displayQty) displayQty.textContent = newQty;
+            if (displayTotal) displayTotal.textContent = newTotal.toFixed(2);
+        });
+    });
+        
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    initializeCart();
 });

@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="cart.js" defer></script>
+    <script src="preserves.js" defer></script>
 </head>
 <body>
 
@@ -30,147 +31,7 @@
 
 <main class="container my-4">
     <div class="row" id="preserves-list">
-
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-            <div class="card h-100 p-3 d-flex flex-column">
-                <img src="images/strawberryJam.jpeg" class="card-img-top mb-2" alt="Strawberry Jam">
-                <h3>Strawberry Jam</h3>
-                <p>Classic sweet jam made from fresh strawberries.</p>
-
-                <div class="mt-auto">
-                    <label class="form-label mb-1" for="qty-Strawberry-Jam">
-                        Already in cart: <span id="qty-display-qty-Strawberry-Jam">0</span> × $3.50 =
-                        $<span id="total-display-Strawberry-Jam">0.00</span>
-                    </label>
-
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <span>Quantity:</span>
-                        <input type="number" id="qty-Strawberry-Jam" data-name="Strawberry Jam"
-                               class="form-control item-qty" min="1" value="1" style="max-width: 100px;">
-                    </div>
-
-                    <small id="qty-error-qty-Strawberry-Jam" class="text-danger d-none">Quantity must be greater than
-                        0</small>
-
-                    <button class="btn btn-success w-100 add-to-cart" data-name="Strawberry Jam" data-price="3.50">
-                        Add to Cart ($3.50)
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-            <div class="card h-100 p-3 d-flex flex-column">
-                <img src="images/blueberryJam.jpeg" class="card-img-top mb-2" alt="Blueberry Jam">
-                <h3>Blueberry Jam</h3>
-                <p>Sweet and tart, perfect for toast and muffins.</p>
-
-                <div class="mt-auto">
-                    <label class="form-label mb-1" for="qty-Blueberry-Jam">
-                        Already in cart: <span id="qty-display-qty-Blueberry-Jam">0</span> × $3.75 =
-                        $<span id="total-display-Blueberry-Jam">0.00</span>
-                    </label>
-
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <span>Quantity:</span>
-                        <input type="number" id="qty-Blueberry-Jam" data-name="Blueberry Jam"
-                               class="form-control item-qty" min="1" value="1" style="max-width: 100px;">
-                    </div>
-
-                    <small id="qty-error-qty-Blueberry-Jam" class="text-danger d-none">Quantity must be greater than
-                        0</small>
-
-                    <button class="btn btn-success w-100 add-to-cart" data-name="Blueberry Jam" data-price="3.75">
-                        Add to Cart ($3.75)
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-            <div class="card h-100 p-3 d-flex flex-column">
-                <img src="images/peachPreserves.jpeg" class="card-img-top mb-2" alt="Peach Preserve">
-                <h3>Peach Preserve</h3>
-                <p>Chunks of sweet peaches preserved to perfection.</p>
-
-                <div class="mt-auto">
-                    <label class="form-label mb-1" for="qty-Peach-Preserve">
-                        Already in cart: <span id="qty-display-qty-Peach-Preserve">0</span> × $4.00 =
-                        $<span id="total-display-Peach-Preserve">0.00</span>
-                    </label>
-
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <span>Quantity:</span>
-                        <input type="number" id="qty-Peach-Preserve" data-name="Peach Preserve"
-                               class="form-control item-qty" min="1" value="1" style="max-width: 100px;">
-                    </div>
-
-                    <small id="qty-error-qty-Peach-Preserve" class="text-danger d-none">Quantity must be greater than
-                        0</small>
-
-                    <button class="btn btn-success w-100 add-to-cart" data-name="Peach Preserve" data-price="4.00">
-                        Add to Cart ($4.00)
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-            <div class="card h-100 p-3 d-flex flex-column">
-                <img src="images/rasberryPreserves.jpeg" class="card-img-top mb-2" alt="Raspberry Preserve">
-                <h3>Raspberry Preserve</h3>
-                <p>Bright and flavorful preserve with a tart kick.</p>
-
-                <div class="mt-auto">
-                    <label class="form-label mb-1" for="qty-Raspberry-Preserve">
-                        Already in cart: <span id="qty-display-qty-Raspberry-Preserve">0</span> × $4.25 =
-                        $<span id="total-display-Raspberry-Preserve">0.00</span>
-                    </label>
-
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <span>Quantity:</span>
-                        <input type="number" id="qty-Raspberry-Preserve" data-name="Raspberry Preserve"
-                               class="form-control item-qty" min="1" value="1" style="max-width: 100px;">
-                    </div>
-
-                    <small id="qty-error-qty-Raspberry-Preserve" class="text-danger d-none">Quantity must be greater
-                        than 0</small>
-
-                    <button class="btn btn-success w-100 add-to-cart" data-name="Raspberry Preserve" data-price="4.25">
-                        Add to Cart ($4.25)
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-            <div class="card h-100 p-3 d-flex flex-column">
-                <img src="images/apricotJam.webp" class="card-img-top mb-2" alt="Apricot Jam">
-                <h3>Apricot Jam</h3>
-                <p>Sweet and tangy jam made from ripe apricots.</p>
-
-                <div class="mt-auto">
-                    <label class="form-label mb-1" for="qty-Apricot-Jam">
-                        Already in cart: <span id="qty-display-qty-Apricot-Jam">0</span> × $3.80 =
-                        $<span id="total-display-Apricot-Jam">0.00</span>
-                    </label>
-
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <span>Quantity:</span>
-                        <input type="number" id="qty-Apricot-Jam" data-name="Apricot Jam" class="form-control item-qty"
-                               min="1" value="1" style="max-width: 100px;">
-                    </div>
-
-                    <small id="qty-error-qty-Apricot-Jam" class="text-danger d-none">Quantity must be greater than
-                        0</small>
-
-                    <button class="btn btn-success w-100 add-to-cart" data-name="Apricot Jam" data-price="3.80">
-                        Add to Cart ($3.80)
-                    </button>
-                </div>
-            </div>
-        </div>
-
+        
     </div>
 </main>
 
